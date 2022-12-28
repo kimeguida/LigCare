@@ -1,0 +1,8 @@
+
+
+models/xgb/
+models/rf/kinase/
+models/rf/time/
+models/rf/gpcr/
+models/rf/nuclear_receptor/
+models/rf/protease/
