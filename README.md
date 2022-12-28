@@ -22,8 +22,8 @@ Please note that this repository is in beta version.
 	
 
 ## Help and issues
-`<script>.py --help` for options.
-Signal issues: https://github.com/kimeguida/LigCare/issues
+`<script>.py --help` for options. <br>
+To signal issues: https://github.com/kimeguida/LigCare/issues
 
 
 
@@ -32,6 +32,7 @@ Signal issues: https://github.com/kimeguida/LigCare/issues
 
 ### 1. Computation of cavity descriptors
 ```python scripts/cavity_descriptors.py -c data/cavities/2rh1_1_cavityALL.mol2 -p data/proteins/2rh1_1_protein.mol2 -o data/desc/2rh1_1_desc.npy -obsa bsa/2rh1_1_bsa.tsv``` <br>
+
 Computing the buriedness BSA is computationally clostly. If BSA data (.bsa files) are already available:
 ```python scripts/cavity_descriptors.py -c data/cavities/2rh1_1_cavityALL.mol2 -p data/proteins/2rh1_1_protein.mol2 -o data/desc/2rh1_1_desc.npy -ibsa bsa/2rh1_1_bsa.tsv```
 
