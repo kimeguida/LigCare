@@ -1,0 +1,29 @@
+# Modified by LigCare
+# Modification time: Tue 27 Dec 2022 16:53:46
+# Name: data/ligvoxelplus/2rh1_1_ligvoxelplus.mol2
+
+@<TRIPOS>MOLECULE
+data/ligvoxelplus/2rh1_1_ligvoxelplus
+   18     0     0     0     0
+SMALL
+NO_CHARGES
+@<TRIPOS>ATOM
+      1 OG        -33.4770   10.9570    8.1700 O.3       1 SER1           0.0
+      2 O         -30.0490   10.3670    7.1820 O.2       2 ALA2           0.0
+      3 NZ        -33.7020    8.2500    7.6000 N.4       3 LYS3           0.0
+      4 N         -25.5930    9.6570    5.9740 N.am      4 ALA4           0.0
+      5 CA        -33.5330    6.3850    6.0550 C.3       5 GLY5           0.0
+      6 CA        -35.1840    6.3500    7.9880 C.3       6 GLY6           0.0
+      7 CZ        -26.3950    6.4320    7.6890 C.ar      7 PHE7           0.0
+      8 CZ        -27.7170    6.7310    8.0060 C.ar      8 PHE8           0.0
+      9 CZ        -27.7680   12.6280    5.3930 C.ar      9 PHE9           0.0
+     10 CZ        -28.9110   12.1330    6.0050 C.ar     10 PHE10          0.0
+     11 CZ        -25.5890    7.3380    7.0090 C.ar     11 PHE11          0.0
+     12 CZ        -26.6080   11.8750    5.3320 C.ar     12 PHE12          0.0
+     13 CZ        -28.2690    7.9480    7.6520 C.ar     13 PHE13          0.0
+     14 CZ        -28.9310   10.8570    6.5810 C.ar     14 PHE14          0.0
+     15 CZ        -26.0960    8.5610    6.6370 C.ar     15 PHE15          0.0
+     16 CZ        -26.5650   10.6250    5.8750 C.ar     16 PHE16          0.0
+     17 CZ        -27.4820    8.8630    6.9760 C.ar     17 PHE17          0.0
+     18 CZ        -27.7680   10.1080    6.5170 C.ar     18 PHE18          0.0
+@<TRIPOS>BOND
