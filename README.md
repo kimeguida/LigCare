@@ -17,8 +17,8 @@ Please note that this repository is in beta version.
 
 ## Content
 * scripts
-* data/: input and output data organization with examples
-* models: storage of trained models (example), all trained models are in models.tgz archive
+* data: input and output data organization with examples
+* models: https://zenodo.org/record/7488034, examples of all trained models in models.tgz archive
 	
 
 ## Help and issues
@@ -66,7 +66,7 @@ Several splitting schemes are implemented for left-out cavities: random, GPCR, t
 
 ### 4. Training models
 Example for random left-out. Random Forest (rf) or XGBoost (xgb) classifiers were tested. Each of the seven ph4 types (CA hydrophobic, CZ aromatic, O h-bond acceptor, OG h-bond acceptor and donor, OD1 negative ionizable, N h-bond donor, NZ positive ionizable) is trained individually.  
-```python ../sharing/scripts/train.py -t data/split_train_test/random/features_split.json -d data/descriptors -clf rf``` <br>
+```python scripts/train.py -t data/split_train_test/random/features_split.json -d data/descriptors -clf rf``` <br>
 
 outputs:
 - `<ph4>.report`: statistics of cross-validation, training and external tests

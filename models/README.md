@@ -1,3 +1,3 @@
+# LigCare: Processing, comparison and alignment of protein pharmacophoric points to ligand pharmacophores
 
-
-Models available at:
+Trained models are available at: https://zenodo.org/record/7488034
