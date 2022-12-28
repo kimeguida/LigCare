@@ -56,6 +56,7 @@ Training labels of cavity points for classification:
 
 After generation of descriptors and labels for the entire database, split into application, balanced training and test sets:  
 ```python scripts/prepare_data.py -f data/scpdb_2022.list -d data/desc -l data/labels -a data/scpdb_2022_annotation.tsv --split random > prepare_data.log``` <br>
+
 outputs:
 - `features_split.json`: training and test sets of points
 - `external_test_pdb.json`: leave-out entire cavities, for application
@@ -66,6 +67,7 @@ Several splitting schemes are implemented for left-out cavities: random, GPCR, t
 ### 4. Training models
 Example for random left-out. Random Forest (rf) or XGBoost (xgb) classifiers were tested. Each of the seven ph4 types (CA hydrophobic, CZ aromatic, O h-bond acceptor, OG h-bond acceptor and donor, OD1 negative ionizable, N h-bond donor, NZ positive ionizable) is trained individually.  
 ```python ../sharing/scripts/train.py -t data/split_train_test/random/features_split.json -d data/descriptors -clf rf``` <br>
+
 outputs:
 - `<ph4>.report`: statistics of cross-validation, training and external tests
 - `<ph4>.model`: trained model binary, can be loaded with pickle
@@ -77,7 +79,7 @@ Example for random left-out.
 ```python scripts/application.py -v data/split_train_test/random/external_test_pdb.json -c data/scpdb_2022/cavities --models models/rf/$f/CA.model models/rf/random/CZ.model models/rf/random/O.model models/rf/random/OG.model models/rf/random/OD1.model models/rf/random/N.model models/rf/random/NZ.model --modelnames CA CZ O OG OD1 N NZ -d data/descriptors -o data/pred_pharm/rf/random/``` <br>
 
 For all left-out.  
-```for f in random kinase gpcr nuclear_receptor protease time; do echo predicting for $f............; python scripts/application.py -v data/split_train_test /$f/external_test_pdb.json -c data/scpdb_2022/cavities --models models/rf/$f/CA.model models/rf/$f/CZ.model models/rf/$f/O.model models/rf/$f/OG.model models/rf/$f/OD1.model models/rf/$f/N.model models/rf/$f/NZ.model --modelnames CA CZ O OG OD1 N NZ -d data/descriptors -o data/pred_pharm/rf/$f/ done```
+```for f in random kinase gpcr nuclear_receptor protease time; do echo predicting for $f............; python scripts/application.py -v data/split_train_test /$f/external_test_pdb.json -c data/scpdb_2022/cavities --models models/rf/$f/CA.model models/rf/$f/CZ.model models/rf/$f/O.model models/rf/$f/OG.model models/rf/$f/OD1.model models/rf/$f/N.model models/rf/$f/NZ.model --modelnames CA CZ O OG OD1 N NZ -d data/descriptors -o data/pred_pharm/rf/$f/ done``` <br>
 
 outputs:
 - pruned cavities: only points precticted to be interacting are kept in the pruned cavities.
@@ -85,7 +87,7 @@ outputs:
 
 
 ### 6. Analysis of predictions: pruned cavities
-Example for the prediction of GPCR left-out cavities 
+Example for the prediction of GPCR left-out cavities   
 ```python scripts/statistics_application.py -c data/cavities -pr data/pred_pharm/rf/gpcr/ -ap data/split_train_test/gpcr/external_test_pdb.json -d ../data/descriptors -l ../data/labels -an scpdb_2022_annotation.tsv```
 
 
@@ -96,11 +98,11 @@ Example for the prediction of GPCR left-out cavities
 Transformation of ligands/molecules into pharmacophoric (ph4) features:  
 ```python scripts/ligand_to_ph4.py --database --duplicate -l data/ligands.list -idir data/ligands -odir data/ligph4``` <br>
 
-Align by searching common substructures in the ph4 features:
-* *Using IChem VolSite grid-sampled cavities*
+Align by searching common substructures in the ph4 features:  
+* *Using IChem VolSite grid-sampled cavities*  
 `python scripts/ligcare_graph.py -c data/cavities/2rh1_1_cavityALL.mol2 -p data/proteins/2rh1_1_protein.mol2 -l data/ligph4/2rh1_1_ligph4.mol2 -lig data/ligands/2rh1_1_ligand.mol2` <br>
 
-* *Using projected irregular protein features*
+* *Using projected irregular protein features*  
 Compute protph4 features...  
 `python scripts/protein_to_ph4.py -p data/proteins/2rh1_1_protein.mol2 -c data/cavities/2rh1_1_cavityALL.mol2 -o data/protph4/2rh1_1_photph4.mol2` <br>
 ... and compare  
